@@ -1,32 +1,37 @@
 <template>
   <div id="app">
-    <nav>
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </nav>
+    <!-- 使用组件 -->
+    <mynav />
+      <!-- 
+      router-link可以理解为<a>
+      to 可以理解为herf=路劲
+      一旦使用了路由跳转，必须找router/index.js文件，
+      该文件中配置了路由和组件的映射关系 
+      -->
+      <!-- <router-link to="/">Home</router-link> |
+      <router-link to="/about">About</router-link> -->
+    <!-- 引入路由 -->
     <router-view/>
   </div>
 </template>
 
+<script>
+import mynav from './views/nav/index.vue'
+export default ({
+  data() {
+    return {};
+  },
+  components:{
+    mynav,
+  }
+})
+</script>
+
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+body {
+  overflow: hidden;
 }
-
-nav {
-  padding: 30px;
-}
-
-nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-nav a.router-link-exact-active {
-  color: #42b983;
+* {
+  touch-action: pan-y;
 }
 </style>
